@@ -11,46 +11,25 @@
 
 <body>
   <div class="flex-column justify-space-around">
+    <nav>
+        <!-- Conditionally render login or logout links -->
+        {{#if logged_in}}
+        <a href="/home">Home</a>
+        <a href="/dashboard">Dashboard</a>
+        <a class="no-button" id="logout" href="/logout">Logout</a> 
+        {{else}}
+        <a href="/login">Login</a>
+        {{/if}}
+      </nav>
     <header class="display-flex justify-space-between align-center p-2">
       <div>  
         <h1>
          <a href="/">The Tech Blog</a>
         </h1>
       </div>
-      <nav>
-        <!-- Conditionally render login or logout links -->
-        {{#if logged_in}}
-        <a href="/home">Home</a>
-        <a href="/dashboard">Dashboard</a> |
-        <button class="no-button" id="logout">Logout</button>
-        {{else}}
-        <a href="/login">login</a>
-        {{/if}}
-      </nav>
+      
     </header>
     <main class="container container-fluid mt-5">
-      <div class="col-md-6">
-        <h2>Signup</h2>
-
-      <form class="form signup-form">
-      <div class="form-group">
-        <label for="name-signup">name:</label>
-        <input class="form-input" type="text" id="name-signup" />
-      </div>
-      <div class="form-group">
-        <label for="email-signup">email:</label>
-        <input class="form-input" type="text" id="email-signup" />
-      </div>
-      <div class="form-group">
-        <label for="password-signup">password:</label>
-        <input class="form-input" type="password" id="password-signup" />
-      </div>
-      <div class="form-group">
-        <button class="btn btn-primary" type="submit">signup</button>
-      </div>
-      </form>
-      </div>
-
       <!-- Render the sub layout -->
       {{{ body }}}
     </main>
