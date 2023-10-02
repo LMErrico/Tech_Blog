@@ -14,7 +14,7 @@
     <nav>
         <!-- Conditionally render login or logout links -->
         {{#if logged_in}}
-        <a href="/home">Home</a>
+        <a href="/">Home</a>
         <a href="/dashboard">Dashboard</a>
         <a class="no-button" id="logout" href="/logout">Logout</a> 
         {{else}}
@@ -23,9 +23,7 @@
       </nav>
     <header class="display-flex justify-space-between align-center p-2">
       <div>  
-        <h1>
-         <a href="/">The Tech Blog</a>
-        </h1>
+        <h1>The Tech Blog</h1>
       </div>
       
     </header>
