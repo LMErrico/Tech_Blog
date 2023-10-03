@@ -16,6 +16,7 @@ router.post('/', withAuth, async (req, res) => {
 });
 
 router.put('/:id', withAuth, async (req, res) => {
+  console.log(`Received PUT request for ID: ${req.params.id}`);
   try {
     const updatedRows = await Blog.update(
       {
@@ -29,6 +30,8 @@ router.put('/:id', withAuth, async (req, res) => {
       }
     );
 
+    console.log('Number of updated rows:', updatedRows[0]);
+
     if (updatedRows[0] === 0) {
       res.status(404).json({ message: 'No blog found with this id!' });
       return;
@@ -39,6 +42,7 @@ router.put('/:id', withAuth, async (req, res) => {
 
     res.status(200).json(updatedBlog);
   } catch (err) {
+    
     res.status(500).json(err);
   }
 });

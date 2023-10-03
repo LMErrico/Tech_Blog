@@ -22,6 +22,7 @@ const newFormHandler = async (event) => {
   };
 
   const updateButtonHandler = async (event) => {
+    console.log('Button clicked:', event.target);
     if (event.target.classList.contains('btn-update')) {
       const id = event.target.getAttribute('data-id');
       
@@ -29,6 +30,7 @@ const newFormHandler = async (event) => {
       const contents = prompt('Enter updated contents:');
   
       if (title && contents) {
+        console.log(`Updating blog with ID: ${id}, title: ${title}, contents: ${contents}`);
         try {
           console.log('Sending PUT request');
           const response = await fetch(`/api/blogs/update/${id}`, {
@@ -38,14 +40,16 @@ const newFormHandler = async (event) => {
               'Content-Type': 'application/json',
             },
           });
-  
+          console.log('Response received:', response);
+
           if (response.ok) {
             document.location.replace('/dashboard');
           } else {
+            console.log('Failed to update blog, status:', response.status);
             alert('Failed to update blog');
           }
         } catch (err) {
-          console.error(err);
+          console.error('Error during fetch:', err);
           alert('An error occurred while updating the blog');
         }
       }
