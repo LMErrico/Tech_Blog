@@ -3,14 +3,19 @@
 <div class="row mb-4 blog">
   <div class="col-md-5">
     <h2>
-      <a href="/blog/{{blog.id}}">{{blog.title}}</a>
+    <p>Title</p>  
+    <a href="/blogs/{{blog.id}}">{{blog.title}}</a>
     </h2>
-    
-    <p>Posted by {{blog.user.name}} on {{format_date blog.date_created}}</p>
+     
+    <p><b>Posted by</b> {{blog.user.name}} <b>on</b> {{format_date blog.date_created}}</p>
   </div>
   <div class="col-md-7">
-    <p>
+    <p><b>Content</b>
       {{blog.contents}}
+    </p>
+  </div><div class="col-md-7">
+    <p><b>Comment</b>
+      {{blog.comment}}
     </p>
   </div>
 </div>

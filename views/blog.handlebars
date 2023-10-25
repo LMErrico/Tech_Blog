@@ -1,15 +1,19 @@
 <div class="text-center">
   <h2>{{title}}</h2>
   <p>{{contents}}</p>
+   <p>{{iId}}</p>
   <p>Posted by {{user.name}} on {{format_date date_created}}</p>
-  <div class="form-group">
-        <label for="blog-commet">Comment:</label>
-        <textarea class="form-input" id="blog-comment" name="blog-comment"></textarea>
-      </div>
-      <div class="form-group">
-  <p>{{comment}}</p>
-  <p>
-    <button class="btn btn-primary">Submit</button>
+  <div>
+  <form class="form-comment" id="comment-form" data-id="{{blog.Id}}"> 
+        <label for="blog-comment">Comment:</label>
+        <textarea class="form-input" id="blog-comment" name="comment">{{comment}}</textarea>
+      {{!-- </div>
+      <div class="form-group"> --}}
+  <p> 
+    <button class="btn btn-primary" type="submit">Submit</button>
   </p>
+</form>
+  </div>
 </div>
 
+<script src="/js/comments.js"></script>

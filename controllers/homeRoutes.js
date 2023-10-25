@@ -27,7 +27,7 @@ router.get('/', async (req, res) => {
   }
 });
 
-router.get('/blog/:id', async (req, res) => {
+router.get('/blogs/:id', async (req, res) => {
   try {
     const blogData = await Blog.findByPk(req.params.id, {
       include: [
@@ -79,14 +79,28 @@ router.get('/login', (req, res) => {
   res.render('login');
 });
 
-router.get('/updates', (req, res) => {
-  // If the user is already logged in, redirect the request to another route
-  if (req.session.logged_in) {
-    res.render('edit');
-    return;
-  }
+router.put('/update/:id', withAuth, async (req, res) => {
+  try {
+    const blogData = await Blog.findByPk(req.params.id);
 
-  res.render('login');
+    if (!blogData) {
+      res.status(404).json({ message: 'No blog found with this id!' });
+      return;
+    }
+
+    if (blogData.user_id !== req.session.user_id) {
+      res.status(403).json({ message: 'You are not authorized to update this blog post!' });
+      return;
+    }
+
+    const updatedBlog = await blogData.update({
+      ...req.body,
+    });
+
+    res.status(200).json(updatedBlog);
+  } catch (err) {
+    res.status(500).json(err);
+  }
 });
 
 module.exports = router;
