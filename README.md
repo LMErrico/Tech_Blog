@@ -6,6 +6,7 @@ This CMS-style blog site was created similar to a Wordpress site, where develope
 
 It follows the MVC paradigm in its architectural structure, using Handlebars.js as the templating language, Sequelize as the ORM, and the express-session npm package for authentication.
 
+
 ## Table of Contents
 - [Description](#description)
 - [Table of Contents](#table-of-contents)
@@ -14,21 +15,19 @@ It follows the MVC paradigm in its architectural structure, using Handlebars.js 
 - [License](#license)
 - [Note](#note)
 
+
 ## Installation
 
 N/A
 
+
 ## Usage
 
-The URL of the functional, deployed application (Heroku) is 
+The URL of the functional, deployed application (Heroku) is https://tech-blog-le-5a30604b3fe2.herokuapp.com/
 
 Application where developers who write about tech can publish, delete or update their articles, blog posts, thoughts and opinions. The functionality includes the option to leave a comment on an existing blog post as well.
 
-
-
-IMAGENES!!!! XOXOXOXOXOXXO
-
-
+![Alt text](<public/images/Screen Shot 2023-10-27 at 8.20.58 PM.png>)
 
 
 ## License
